@@ -1,0 +1,20 @@
+La lavagna descrive i cambiamenti di stato in battaglia. 
+Sonno: Un Pokemon non puo' attaccare se dorme.
+Un Pokemon puo' restare addormentato anche dopo la battaglia.
+Usa la Sveglia per svegliarlo.
+Scottatura: Una Scottatura riduce l'Attacco. E fa anche perdere alcuni PS.
+Una Scottatura permane anche dopo la battaglia. 
+Usa l'Antiscott. per curarla.
+Avvelenamento: Se avvelenato, un Pokemon perde PS.
+L'avvelenamento dura anche dopo la battaglia.
+Usa l'Antidoto per curarlo!
+Paralisi: Riduce la velocita' del Pokemon , impedendone il movimento.
+La paralisi dura anche dopo la battaglia.
+Usa l'Antiparalisi per curarla.
+Ho scambiato un Pokemon con il ragazzo dietro di me.
+Huh? Il Pokemon che ho preso teneva un oggetto!
+Un Pokemon con una bacca puo' curarsi durante una battaglia. 
+Molti oggetti possono essere tenuti da un Pokemon... 
+Di sicuro sta prendendo nota...
+Sto prendendo nota di quel che dice la maestra. 
+Farei meglio a copiare cio' che c'e' scritto.

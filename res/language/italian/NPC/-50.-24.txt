@@ -1,0 +1,9 @@
+Ciao! Benvenuto al Centro Commerciale di Azzurropoli.
+Lascia che ti descriva il luogo.
+1F: Ingresso
+2F: Oggetti Generici
+3F: Negozio MT
+4F: Pietre Evolutive
+5F: Drogheria
+6F: in costruzione
+Perfavore segnala questo bug!

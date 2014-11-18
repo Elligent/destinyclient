@@ -1,0 +1,16 @@
+Benvenuti al Sistema di Deposito Pokemon.
+1F: Reception 
+2F: Vendite 
+3F: Personale 
+4F: Produzione 
+5F: Ufficio del Direttore
+Radio Fortuna! 
+Vinci con gli ID dei Pokemon! 
+Scambia Pokemon per averne diversi!
+Benvenuto!
+Sintonizzati sulla frequenza della nostra radio.
+Perfavore segnala questo bug!
+Adoro Mary, del Pokemon Talk Show. 
+So solo che ha una voce fantastica.
+Ben e' un gran DJ. 
+La sua voce mette i brividi!

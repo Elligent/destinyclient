@@ -1,0 +1,6 @@
+Willkommen zur Saffronia City Magnet-Zug-Station.
+Das ist die Station fuer die GS Linie.
+Die GS Linie ist ein Rapid Transit, welche
+schnelle Magnet-Zuege zwischen Saffronia und Dukatia hin und her schickt.
+Weitere Linien werden in Zukunft vielleicht hinzugefuegt.
+Die GS Linie ist derzeit wegen Wartungsarbeiten geschlossen.

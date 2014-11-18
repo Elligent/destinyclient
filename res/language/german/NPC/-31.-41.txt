@@ -1,0 +1,16 @@
+Willkommen zum Pokemon Lagerungs-System.
+1E: Rezeption 
+2E: Vertrieb 
+3E: Personal 
+4E: Produktion 
+5E: Buero des Direktors
+Glueckskanal! 
+Gewinne mit Pokemon ID Nummern! 
+Tausche deine Pokemon um verschiedene ID Nummern zu sammeln!
+Willkommen!
+Bitte schalte ein zu unserer Radio-Show.
+Bitte melde diesen Fehler!
+Ich liebe Mary von Pokemon Talk. 
+Ich weiss nur wie sie sich anhoert, leider.
+Ben ist ein fabelhafter DJ. 
+Seine suesse Stimme laesst mich dahinschmelzen!

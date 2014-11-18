@@ -1,0 +1,4 @@
+Manchmal ist ein gesundes Pokemon nicht in der Lage seine Attacken einzusetzen. 
+Wenn das passiert, heile es in einem PokeCenter oder benutze Items.
+Einmal konnte mein Pokemon nicht eine einzige Attacke ausfuehren. 
+Die Angriffs-Punkte, kurz AP, waren alle leer.

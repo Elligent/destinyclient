@@ -1,0 +1,30 @@
+Okay!
+Leggi tutta la lavagna!
+Whew! Sto cercando di memorizzare il tutto.
+Vediamo cosa c'e' scritto.
+Le Poke Ball sono usate per catturare i Pokemon.
+Puoi portare sino a 6 Pokemon con te.
+Chi cresce e si allena con i Pokemon sono gli Allenatori.
+Un Pokemon in forze e' difficile da catturare, indeboliscilo prima.
+Paralisi, Sonno o qualunque altra problemi di stato , lo indeboliscono.
+Gli allenatori si sfidano in lotte di Pokemon.
+Per un allenatore , e' dolce il sapore della vittoria.
+Lotte vengono fatte un po' dovunque.
+L'obiettivo finale di un allenatore e' semplice.
+Dipende dalla sua indole.
+Catturarli tutti, conquistare le medaglie e essere il migliore...
+e chissa' quanti altri ne esistono!
+Ragazza:"Hey , non si copia!"
+La lavagna elenca  i problemi di stato durante le battaglie.
+Sonno: Un Pokemon non puo' attaccare se dorme.
+Un Pokemon puo' restare addormentato anche dopo la battaglia.
+Usa la Sveglia per svegliarlo.
+Scottatura: Una Scottatura riduce l'Attacco. E fa anche perdere alcuni PS.
+Una Scottatura permane anche dopo la battaglia. Usa l'Antiscott. per curarla.
+Avvelenamento: Se avvelenato, un Pokemon perde PS.
+L'avvelenamento dura anche dopo la battaglia. Usa l'Antidoto per curarlo!
+Congelamento: Un Pokemon congelato non puo' fare nulla e' immobile.
+E resta tale anche dopo la battaglia.
+Usa l'Antigelo.
+Paralisi: Riduce la velocita' del Pokemon , impedendone il movimento.
+La paralisi dura anche dopo la battaglia. Usa l'Antiparalisi per curarla.

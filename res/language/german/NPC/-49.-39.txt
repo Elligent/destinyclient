@@ -1,0 +1,19 @@
+Auf der Tafel stehen Pokemon-Statusprobleme die in einem Kampf auftreten koennen.
+Schlafen: Ein Pokemon kann icht angreifen wenn es eingeschlafen ist.
+Pokemon schlafen auch nach einem Kampf noch weiter.
+Benutze Aufwecker um sie zu wecken.
+Brennen: Eine Verbrennung senkt die Angriffskraft. Es reduziert auch dauerhaft die HP deiner Pokemon.
+Eine Verbrennung besteht auch weiterhin nach einem Kampf.
+Benutze einen Feuerheiler um die Verbrennung zu heilen.
+Vergiftung: Wenn dein Pokemon vergiftet wurde, sinkt die HP staendig in jeder Runde.
+Eine Vergiftung besteht auch noch nach einem Kampf, die HP deines Pokemons sinkt wenn du laeufst.
+Nutze Gegengift um die Vergiftung zu behandeln.
+Paralysiert: Paralyse vermindert die Geschwindigkeit und hindert das Pokemon evtl. daran azugreifen.
+Die Paralyse besteht auch noch nach dem Kampf. Benutze einen Para-Heiler um das Pokemon zu heilen.
+Ich habe mein bestes Pokemon mit dem Typ neben mir getauscht.
+Huh? Das Pokemon welches ich bekommen hab traegt etwas!
+Ein Pokemon das eine Beere traegt wird sich im Kampf von selbst heilen.
+Es koennen noch viele andere Items von Pokemon getragen werden.
+Es ist schwer sich ein Konzept zu machen...
+Ich werde Aufzeichnungen von dem Vortrag des Lehrers machen.
+Das Zeug auf der Tafel sollte ich auch besser aufschreiben.

@@ -1,0 +1,2 @@
+Nur tallentierte Trainer koennen Orden sammeln.
+Du brauchst sie um an offiziellen Pokemon-Turnieren teilnehmen zu koennen.

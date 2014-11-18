@@ -1,0 +1,24 @@
+pokeName wurde besiegt!
+pokeName setzt moveName ein!
+Was wirst du tun...
+pokeName erhaelt expNum EXP und braucht noch expRemaining EXP bis zum Level-Up...
+pokeName wird zurueckgerufen.
+trainerName schickt pokeName in den Kampf!
+Waehle ein neues Pokemon!
+pokeName erleidet damageNum HP Schaden!
+Es verbleiben hpNumHP!
+pokeName hat damageNum HP wiederhergestellt!
+trainerName hat den Kampf gewonnen!
+trainerName wurde besiegt!
+Du bist entkommen!
+Du konntest nicht fliehen!
+pokeName wurde vergiftet!
+pokeName ist eingefroren!
+pokeName brennt!
+pokeName ist paralysiert! Es kann evtl. nicht angreifen
+pokeName ist eingeschlafen!
+Du gewinnst $earningsNum!
+pokeName hat Level levelNum erreicht!
+moveName keine AP mehr vorhanden. Waehle eine andere Attacke.
+Das wilde pokeName lies rewardItem fallen!
+Du bekommst rewardItem zum Sieg!

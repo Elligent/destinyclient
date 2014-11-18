@@ -1,0 +1,30 @@
+Okay!
+Lese genau was auf der Tafel steht!
+Whew! Ich versuche meine Aufzeichnungen auswendig zu lernen.
+Lass uns das Notebook ueberpruefen.
+Pokebaelle werden zum fangen von Pokemon benutzt.
+Dein Team kann aus bis zu sechs Pokemon bestehen.
+Leute die ihre Pokemon aufziehen und mit ihnen kaempfen nennt man Trainer.
+Ein gesundes Pokemon ist schwer zu fangen, schwaeche es vorher.
+Vergiftung, Verbrennung oder andere Statusprobleme schwaecht das Pokemon.
+Pokemon Trainer suchen andere Trainer um zu kaempfen.
+Der Geschmack eines Sieges ist suess.
+Kaempfe werden ueberall ausgefuehrt.
+Das ultimative Ziel eines jeden Pokemon Trainers ist einfach.
+Es ist der Sieg ueber alle Arenaleiter.
+Das musst du auch um dir das Recht zu verdienen...
+... den Top-Trainern der Welt in Turnieren gegenueberzutreten.
+Maedchen: Hey! Hoer auf auf meine Aufzeichnungen zu schauen!
+Auf der Tafel sind Pokemon-Statusprobleme notiert.
+Schlafen: Ein Pokemon kann nicht angreifen wenn es eingeschlafen ist.
+Pokemon schlafen auch nach dem Kampf noch weiter.
+Benutze Aufwecker um sie zu wecken.
+Brennen: Eine Verbr. senkt die Atk. sowie die HP deines Pokemon.
+Eine Verbrennung besteht auch nach dem Kampf. Zur Heilung: Feuerheiler.
+Vergiftung: Wenn dein Pokemon vergif. wurde, sinkt die HP in jeder Runde.
+Eine Vergiftung besteht auch nach dem Kampf. Zur Heilung: Gegengift.
+Eingefroren: Ein eingefrorenes Pokemon ist dem Feind schutzlos ausgesetzt.
+Auch wenn der Kampf beendet ist, bleibt das Pokemon eingefroren.
+Benutze Eisheiler um das Pokemon aufzutauen.
+Paralyse: Paral. vermindert die Geschw. und das Pkmn kann evtl. nicht angreifen.
+Die Paralyse besteht auch nach dem Kampf. Zur Heilung: Para-Heiler.

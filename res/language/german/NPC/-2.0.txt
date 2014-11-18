@@ -1,0 +1,5 @@
+Rosalia City - Die Stadt der duftenden Blumen
+Hallo, wie gehts?
+Der Kreis neben den Items im PokeMarkt zeigt, wie viele davon auf Lager sind
+Ein weisser Kreis bedeutet das Item ist ausverkauft
+Manche Laeden brauchen laenger um ihre Lager wieder zu fuellen
