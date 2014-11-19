@@ -1,10 +1,8 @@
 package org.destiny.client.ui;
 
-import java.io.File;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import org.destiny.client.backend.FileLoader;
 import org.destiny.client.backend.Translator;
@@ -37,7 +35,7 @@ public class LoginScreen extends DesktopArea
 
 	private RegisterDialog m_register;
 
-	private Label m_serverRev, m_clientRev;
+	private Label m_serverRev;
 	private Button m_openAbout;
 	private Button m_openToS;
 
@@ -94,7 +92,6 @@ public class LoginScreen extends DesktopArea
 		});
 		add(m_openToS);
 
-		setClientRevision();
 		m_serverRev = new Label("");
 		m_serverRev.setVisible(false);
 		add(m_serverRev);
@@ -103,8 +100,7 @@ public class LoginScreen extends DesktopArea
 	@Override
 	public void layout()
 	{
-		m_clientRev.setPosition(4, 600 - m_clientRev.getHeight() - 10);
-		m_serverRev.setPosition(m_clientRev.getWidth() + m_clientRev.computeTextWidth() + 16, m_clientRev.getY());
+		m_serverRev.setPosition(4, 600 - m_serverRev.getHeight() - 10);
 		m_openAbout.setSize(64, 32);
 		m_openAbout.setPosition(728, 8);
 		m_openToS.setSize(64, 32);
@@ -120,31 +116,6 @@ public class LoginScreen extends DesktopArea
 	{
 		m_serverRev.setText("Server Version: r" + rev);
 		invalidateLayout();
-	}
-
-	/**
-	 * Displays client version (ThinClient Version) based on rev.txt If rev.txt is not found, ? is displayed
-	 */
-	private void setClientRevision()
-	{
-		String path = System.getProperty("res.path");
-		if(path == null || path.equalsIgnoreCase("NULL"))
-			path = "./";
-		try
-		{
-			File f = new File(path + "rev.txt");
-			Scanner s;
-			s = new Scanner(f);
-
-			m_clientRev = new Label("Client Version: r" + s.nextLine());
-			s.close();
-		}
-		catch(Exception e)
-		{
-			System.out.println(e.getMessage());
-			m_clientRev = new Label("Client Version: ?");
-		}
-		this.add(m_clientRev);
 	}
 
 	/**
