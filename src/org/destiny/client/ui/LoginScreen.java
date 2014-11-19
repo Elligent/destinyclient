@@ -236,11 +236,7 @@ public class LoginScreen extends DesktopArea
 
 	public void loadBackground(GUI gui)
 	{
-		String respath = System.getProperty("res.path");
-		if(respath == null)
-			respath = "";
-		String backgroundPath = respath + "res/loginscreen/pokenet_normal.png";
-		// Seriously, we don't need any more calculations on startup! [Akkarin]
+		String backgroundPath = "res/loginscreen/destiny_standard.png";
 		Image i = FileLoader.loadImage(backgroundPath);
 		gui.setBackground(i);
 	}
