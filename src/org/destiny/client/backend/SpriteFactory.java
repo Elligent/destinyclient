@@ -85,9 +85,6 @@ public class SpriteFactory
 		try
 		{
 			String location;
-			String respath = System.getProperty("res.path");
-			if(respath == null)
-				respath = "";
 			Image temp;
 			Image[] imgArray = new Image[500];
 			SpriteSheet ss = null;
@@ -99,7 +96,7 @@ public class SpriteFactory
 			{
 				try
 				{
-					location = respath + "res/characters/" + String.valueOf(i) + ".png";
+					location = "res/characters/" + String.valueOf(i) + ".png";
 					temp = new Image(location);
 					imgArray[i + 7] = temp;
 					ss = new SpriteSheet(temp, 41, 51);

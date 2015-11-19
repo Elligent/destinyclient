@@ -27,7 +27,7 @@ public class LanguageDialog extends ResizableFrame
 		setSize(350, 320);
 		setPosition(400 - 170, 250);
 		setTheme("languagedialog");
-		setTitle("Pokemonium Language Selection");
+		setTitle("Pokemon Destiny Language Selection");
 		setResizableAxis(ResizableAxis.NONE);
 		setDraggable(false);
 		pane = new Widget();

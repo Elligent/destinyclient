@@ -16,7 +16,6 @@ import org.destiny.client.ui.frames.ToSDialog;
 import de.matthiasmann.twl.Button;
 import de.matthiasmann.twl.DesktopArea;
 import de.matthiasmann.twl.GUI;
-import de.matthiasmann.twl.Label;
 import de.matthiasmann.twl.renderer.Image;
 
 /**
@@ -35,7 +34,7 @@ public class LoginScreen extends DesktopArea
 
 	private RegisterDialog m_register;
 
-	private Label m_serverRev;
+	//private Label m_serverRev;
 	private Button m_openAbout;
 	private Button m_openToS;
 
@@ -43,10 +42,7 @@ public class LoginScreen extends DesktopArea
 	{
 		setSize(800, 600);
 		setPosition(0, 0);
-		String respath = System.getProperty("res.path");
-		if(respath == null)
-			respath = "";
-
+		
 		List<String> translated = new ArrayList<String>();
 		translated = Translator.translate("_LOGIN");
 
@@ -92,15 +88,15 @@ public class LoginScreen extends DesktopArea
 		});
 		add(m_openToS);
 
-		m_serverRev = new Label("");
-		m_serverRev.setVisible(false);
-		add(m_serverRev);
+		//m_serverRev = new Label("");
+		//m_serverRev.setVisible(false);
+		//add(m_serverRev);
 	}
 
 	@Override
 	public void layout()
 	{
-		m_serverRev.setPosition(4, 600 - m_serverRev.getHeight() - 10);
+		//m_serverRev.setPosition(4, 600 - m_serverRev.getHeight() - 10);
 		m_openAbout.setSize(64, 32);
 		m_openAbout.setPosition(728, 8);
 		m_openToS.setSize(64, 32);
@@ -114,8 +110,8 @@ public class LoginScreen extends DesktopArea
 	 */
 	public void setServerRevision(int rev)
 	{
-		m_serverRev.setText("Server Version: r" + rev);
-		invalidateLayout();
+		//m_serverRev.setText("Server Version: r" + rev);
+		//invalidateLayout();
 	}
 
 	/**
@@ -227,11 +223,11 @@ public class LoginScreen extends DesktopArea
 
 	public void hideServerRevision()
 	{
-		m_serverRev.setVisible(false);
+	//	m_serverRev.setVisible(false);
 	}
 
 	public void showServerRevision()
 	{
-		m_serverRev.setVisible(true);
+		//m_serverRev.setVisible(true);
 	}
 }

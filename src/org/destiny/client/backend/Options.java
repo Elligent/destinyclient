@@ -5,8 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import org.ini4j.Ini;
-import org.ini4j.Ini.Section;
-import org.ini4j.InvalidIniFormatException;
 
 public class Options
 {
@@ -16,25 +14,21 @@ public class Options
 	private boolean surroundingMapsEnabled;
 	private boolean loadSoundEnabled;
 
-	private Ini optionsIni;
+	//private Ini optionsIni;
 
 	public Options()
 	{
 		try
 		{
-			optionsIni = new Ini(new FileInputStream("res/options.ini"));
-			Section interfaceSection = optionsIni.get("INTERFACE");
-			Section soundSection = optionsIni.get("SOUND");
+			Ini optionsIni = new Ini(new FileInputStream("res/options.ini"));
+			Ini.Section interfaceSection = optionsIni.get("INTERFACE");
+			Ini.Section soundSection = optionsIni.get("SOUND");
 
 			setFullscreenEnabled(convertIntToBoolean(Integer.parseInt(interfaceSection.get("FULLSCREEN"))));
 			setSurroundingMapsEnabled(convertIntToBoolean(Integer.parseInt(interfaceSection.get("SHOW_SURROUNDING_MAPS"))));
 			setWeatherEnabled(convertIntToBoolean(Integer.parseInt(interfaceSection.get("SHOW_WEATHER"))));
 			setLoadSoundEnabled(convertIntToBoolean(Integer.parseInt(soundSection.get("DOLOAD"))));
 			volume = Integer.parseInt(soundSection.get("VOLUME"));
-		}
-		catch(InvalidIniFormatException iie)
-		{
-			iie.printStackTrace();
 		}
 		catch(IOException ioe)
 		{

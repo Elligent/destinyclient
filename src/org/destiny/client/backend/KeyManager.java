@@ -2,13 +2,14 @@ package org.destiny.client.backend;
 
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 
 import org.destiny.client.GameClient;
 import org.ini4j.Ini;
-import org.ini4j.InvalidIniFormatException;
+import org.ini4j.InvalidFileFormatException;
 import org.newdawn.slick.Input;
 
 /**
@@ -36,90 +37,73 @@ public class KeyManager
 		return keys.get(a);
 	}
 
-	public static void initialize()
+	public static void initialize() throws InvalidFileFormatException, FileNotFoundException, IOException
 	{
 		keys = new HashMap<Action, Integer>();
 		String respath = System.getProperty("res.path");
 		if(respath == null)
 			respath = "";
-		try
-		{
-			String path = respath + "res/keys.ini";
-			Ini ini = null;
-			try
-			{
-				ini = new Ini(new FileInputStream(path));
-			}
-			catch(InvalidIniFormatException e)
-			{
-				GameClient.getInstance().log("ERROR: Malformed keys.ini, a new file will be generated");
-				reset();
-				return;
-			}
-			catch(IOException e)
-			{
-				GameClient.getInstance().log("ERROR: Error during the loading of keys.ini, could be missing. A new file will be generated");
-				reset();
-				return;
-			}
-			String s;
+		
+		Ini keyIni = new Ini(new FileInputStream("res/keys.ini"));
+			
+		String s;
 
-			// INITIALIZE MOVEMENT KEYS
-			Ini.Section sec = ini.get("MOVEMENT");
-			s = sec.get("UP");
-			if(checkNotNull(Action.WALK_UP, s, true))
-				keys.put(Action.WALK_UP, stringToInt(s));
-			s = sec.get("DOWN");
-			if(checkNotNull(Action.WALK_DOWN, s, true))
-				keys.put(Action.WALK_DOWN, stringToInt(s));
-			s = sec.get("LEFT");
-			if(checkNotNull(Action.WALK_LEFT, s, true))
-				keys.put(Action.WALK_LEFT, stringToInt(s));
-			s = sec.get("RIGHT");
-			if(checkNotNull(Action.WALK_RIGHT, s, true))
-				keys.put(Action.WALK_RIGHT, stringToInt(s));
+		// INITIALIZE MOVEMENT KEYS
+		Ini.Section sec = keyIni.get("MOVEMENT");
+		s = sec.get("UP");
+		if(checkNotNull(Action.WALK_UP, s, true))
+			keys.put(Action.WALK_UP, stringToInt(s));
+		s = sec.get("DOWN");
+		if(checkNotNull(Action.WALK_DOWN, s, true))
+			keys.put(Action.WALK_DOWN, stringToInt(s));
+		s = sec.get("LEFT");
+		if(checkNotNull(Action.WALK_LEFT, s, true))
+			keys.put(Action.WALK_LEFT, stringToInt(s));
+		s = sec.get("RIGHT");
+		if(checkNotNull(Action.WALK_RIGHT, s, true))
+			keys.put(Action.WALK_RIGHT, stringToInt(s));
 
-			// INITIALIZE ROD KEYS
-			sec = ini.get("RODS");
-			s = sec.get("OLD");
-			if(checkNotNull(Action.ROD_OLD, s, true))
-				keys.put(Action.ROD_OLD, stringToInt(s));
-			s = sec.get("GOOD");
-			if(checkNotNull(Action.ROD_GOOD, s, true))
-				keys.put(Action.ROD_GOOD, stringToInt(s));
-			s = sec.get("GREAT");
-			if(checkNotNull(Action.ROD_GREAT, s, true))
-				keys.put(Action.ROD_GREAT, stringToInt(s));
-			s = sec.get("ULTRA");
-			if(checkNotNull(Action.ROD_ULTRA, s, true))
-				keys.put(Action.ROD_ULTRA, stringToInt(s));
+		// INITIALIZE ROD KEYS
+		sec = keyIni.get("RODS");
+		s = sec.get("OLD");
+		if(checkNotNull(Action.ROD_OLD, s, true))
+			keys.put(Action.ROD_OLD, stringToInt(s));
+		s = sec.get("GOOD");
+		if(checkNotNull(Action.ROD_GOOD, s, true))
+			keys.put(Action.ROD_GOOD, stringToInt(s));
+		s = sec.get("GREAT");
+		if(checkNotNull(Action.ROD_GREAT, s, true))
+			keys.put(Action.ROD_GREAT, stringToInt(s));
+		s = sec.get("ULTRA");
+		if(checkNotNull(Action.ROD_ULTRA, s, true))
+			keys.put(Action.ROD_ULTRA, stringToInt(s));
 
-			// INITIALIZE BATTLE KEYS
-			sec = ini.get("BATTLEMOVES");
-			s = sec.get("ATTACK1");
-			if(checkNotNull(Action.POKEMOVE_1, s, true))
-				keys.put(Action.POKEMOVE_1, stringToInt(s));
-			s = sec.get("ATTACK2");
-			if(checkNotNull(Action.POKEMOVE_2, s, true))
-				keys.put(Action.POKEMOVE_2, stringToInt(s));
-			s = sec.get("ATTACK3");
-			if(checkNotNull(Action.POKEMOVE_3, s, true))
-				keys.put(Action.POKEMOVE_3, stringToInt(s));
-			s = sec.get("ATTACK4");
-			if(checkNotNull(Action.POKEMOVE_4, s, true))
-				keys.put(Action.POKEMOVE_4, stringToInt(s));
+		// INITIALIZE BATTLE KEYS
+		sec = keyIni.get("BATTLEMOVES");
+		s = sec.get("ATTACK1");
+		if(checkNotNull(Action.POKEMOVE_1, s, true))
+		keys.put(Action.POKEMOVE_1, stringToInt(s));
+		s = sec.get("ATTACK2");
+		if(checkNotNull(Action.POKEMOVE_2, s, true))
+			keys.put(Action.POKEMOVE_2, stringToInt(s));
+		s = sec.get("ATTACK3");
+		if(checkNotNull(Action.POKEMOVE_3, s, true))
+			keys.put(Action.POKEMOVE_3, stringToInt(s));
+		s = sec.get("ATTACK4");
+		if(checkNotNull(Action.POKEMOVE_4, s, true))
+			keys.put(Action.POKEMOVE_4, stringToInt(s));
 
-			// INITIALIZE INTERACTION KEYS
-			sec = ini.get("INTERACTION");
-			s = sec.get("TALK");
-			if(checkNotNull(Action.INTERACTION, s, true))
-				keys.put(Action.INTERACTION, stringToInt(s));
-		}
-		finally
-		{
-			GameClient.getInstance().log("INFO: Keys Loaded");
-		}
+		// INITIALIZE INTERACTION KEYS
+		sec = keyIni.get("INTERACTION");
+		s = sec.get("TALK");
+		if(checkNotNull(Action.INTERACTION, s, true))
+			keys.put(Action.INTERACTION, stringToInt(s));
+		
+		
+		GameClient.getInstance().log("INFO: Keys Loaded");
+		
 	}
+	
 
 	private static boolean checkNotNull(Action action, String key, boolean resetOnNull)
 	{
@@ -186,7 +170,7 @@ public class KeyManager
 		out.close();
 	}
 
-	private static void reset()
+	private static void reset() throws InvalidFileFormatException, FileNotFoundException, IOException
 	{
 		try
 		{

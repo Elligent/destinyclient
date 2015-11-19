@@ -274,9 +274,6 @@ public class ClientMapMatrix
 			m_mapMatrix[2][2] = null;
 			loadMap(mapX, mapY, 1, 1);
 		}
-		String respath = System.getProperty("res.path");
-		if(respath == null)
-			respath = "";
 		/* Load speech for current map */
 		if(m_speech.size() > 0)
 			m_speech.clear();
@@ -284,7 +281,7 @@ public class ClientMapMatrix
 		{
 			try
 			{
-				BufferedReader reader = FileLoader.loadTextFile(respath + "res/language/" + GameClient.getInstance().getLanguage() + "/NPC/" + mapX + "." + mapY + ".txt");
+				BufferedReader reader = FileLoader.loadTextFile("res/language/" + GameClient.getInstance().getLanguage() + "/NPC/" + mapX + "." + mapY + ".txt");
 				String line;
 				while((line = reader.readLine()) != null)
 					m_speech.add(line);
@@ -293,7 +290,7 @@ public class ClientMapMatrix
 			{ // In case of emergencies, load english!
 				try
 				{
-					BufferedReader reader = FileLoader.loadTextFile(respath + "res/language/english/NPC/" + mapX + "." + mapY + ".txt");
+					BufferedReader reader = FileLoader.loadTextFile("res/language/english/NPC/" + mapX + "." + mapY + ".txt");
 
 					String line;
 					while((line = reader.readLine()) != null)
@@ -379,19 +376,16 @@ public class ClientMapMatrix
 	 */
 	private void loadMapNames()
 	{
-		String respath = System.getProperty("res.path");
-		if(respath == null)
-			respath = "";
 		try
 		{
 			BufferedReader reader;
 			try
 			{
-				reader = FileLoader.loadTextFile(respath + "res/language/" + GameClient.getInstance().getLanguage() + "/_MAPNAMES.txt");
+				reader = FileLoader.loadTextFile("res/language/" + GameClient.getInstance().getLanguage() + "/_MAPNAMES.txt");
 			}
 			catch(Exception e)
 			{
-				reader = FileLoader.loadTextFile(respath + "res/language/english/_MAPNAMES.txt");
+				reader = FileLoader.loadTextFile("res/language/english/_MAPNAMES.txt");
 			}
 
 			String f;

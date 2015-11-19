@@ -62,7 +62,7 @@ public class ServerDialog extends ResizableFrame
 			m_servers = new Button[5];
 			m_host = new String[5];
 			InputStream stream;
-			URL url = new URL("http://industrial-illusions.net/destiny/servers.txt");
+			URL url = new URL(GameClient.serverlist);
 			stream = url.openStream();
 			BufferedReader in = new BufferedReader(new InputStreamReader(stream));
 			m_servers[0] = new Button(in.readLine());
@@ -161,10 +161,11 @@ public class ServerDialog extends ResizableFrame
 		}
 		catch(IOException ioe)
 		{
-			System.out.println("The serverlist could not be loaded, please connect to a private server or try 'Pokemonium Server'.");
+			// Loads default servers
+			System.out.println("The serverlist could not be loaded.");
 			ioe.printStackTrace();
-			m_host[0] = "s1.pokemonium.com";
-			m_servers[0] = new Button("Pokemonium Server");
+			m_host[0] = "destiny1.langfordenterprises.com";
+			m_servers[0] = new Button("Pokemon Destiny Server");
 			m_servers[0].setSize(280, 24);
 			m_servers[0].setPosition(16, 64);
 			m_servers[0].setVisible(true);

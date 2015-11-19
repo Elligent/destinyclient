@@ -1,11 +1,12 @@
 package org.destiny.client.backend;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.ini4j.Ini;
-import org.ini4j.Ini.Section;
+import org.ini4j.InvalidFileFormatException;
 
 /**
  * Contains all information required by the pokedex
@@ -171,28 +172,16 @@ public class PokedexData
 		return dexdata.get(id)[18];
 	}
 
-	public static void loadPokedexData()
+	public static void loadPokedexData() throws InvalidFileFormatException, FileNotFoundException, IOException
 	{
 		dexdata = new HashMap<Integer, String[]>();
 		locations = new HashMap<Integer, ArrayList<Integer>[]>();
 		locationids = new HashMap<Integer, Object[]>();
-		String respath = System.getProperty("res.path");
-		if(respath == null)
-			respath = "";
-		Ini pokemon = null;
-		Ini locations = null;
-		Ini locationid = null;
-		try
-		{
-			pokemon = new Ini(new FileInputStream(respath + "res/pokemon.ini"));
-			locations = new Ini(new FileInputStream(respath + "res/locations.ini"));
-			locationid = new Ini(new FileInputStream(respath + "res/locationids.ini"));
-		}
-		catch(IOException e)
-		{
-			e.printStackTrace();
-			return;
-		}
+		
+		Ini pokemon = new Ini(new FileInputStream("res/pokemon.ini"));
+		Ini locations = new Ini(new FileInputStream("res/locations.ini"));
+		Ini locationid = new Ini(new FileInputStream("res/locationids.ini"));
+		
 
 		for(int i = 0; i < 239; i++)
 		{
@@ -220,7 +209,7 @@ public class PokedexData
 	}
 
 	@SuppressWarnings("unchecked")
-	private static void parseLocationInfo(Section s, int i)
+	private static void parseLocationInfo(Ini.Section s, int i)
 	{
 		ArrayList<Integer>[] data = new ArrayList[4];
 		data[0] = new ArrayList<Integer>();
@@ -256,7 +245,7 @@ public class PokedexData
 				locations.get(i)[3].add(Integer.parseInt(st));
 	}
 
-	private static void parsePokemonInfo(Section s, int index)
+	private static void parsePokemonInfo(Ini.Section s, int index)
 	{
 		String[] data = new String[26];
 		data[0] = s.get("Name");

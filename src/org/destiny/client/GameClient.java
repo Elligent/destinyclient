@@ -1,6 +1,8 @@
 package org.destiny.client;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
@@ -41,6 +43,8 @@ import org.destiny.client.ui.GUIPane;
 import org.destiny.client.ui.HUD;
 import org.destiny.client.ui.LoginScreen;
 import org.destiny.client.ui.frames.PlayerPopupDialog;
+import org.ini4j.Ini;
+import org.ini4j.InvalidFileFormatException;
 import org.jboss.netty.channel.ChannelFuture;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
@@ -108,7 +112,8 @@ public class GameClient extends BasicGame
 	private UserManager m_userManager;
 	private static Options options;
 	private final long startTime = System.currentTimeMillis();
-	private final int DEFAULT_PORT = 7002;
+	public static int m_port;
+	public static String serverlist;
 	private int lastPressedKey;
 	private Animator m_animator;
 	private boolean m_chatServerIsActive;
@@ -126,11 +131,23 @@ public class GameClient extends BasicGame
 
 	private static boolean started = false;
 
-	public static boolean debug = false;
+	public static boolean debug;
+	
+	public static void loadConfigs() throws InvalidFileFormatException, FileNotFoundException, IOException{
+		Ini configIni = new Ini(new FileInputStream("res/clientconfigs.ini"));
+		Ini.Section s = configIni.get("CONFIG");
+		debug = Boolean.parseBoolean(s.get("DEBUG"));
+		m_port = Integer.parseInt(s.get("PORT"));
+		serverlist = s.get("SERVERLIST");
+		
+	}
 
-	public static void main(String[] args)
+	public static void main(String[] args) throws InvalidFileFormatException, FileNotFoundException, IOException
 	{
 		GameClient.getInstance().initClient();
+
+		loadConfigs();
+		
 		/* Pipe errors to a file */
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
 		Date now = new Date(System.currentTimeMillis());
@@ -148,11 +165,7 @@ public class GameClient extends BasicGame
 		{
 			ioe.printStackTrace();
 		}
-		/* See if we need to debug. */
-		if(args.length > 0)
-			if(args[0].equalsIgnoreCase("-debug") || args[0].equalsIgnoreCase("-d"))
-				debug = true;
-
+		
 		KeyManager.initialize();
 		PokedexData.loadPokedexData();
 
@@ -274,7 +287,7 @@ public class GameClient extends BasicGame
 	{
 		String[] address = hoststring.split(":");
 		String host = address[0];
-		int port = DEFAULT_PORT;
+		int port = m_port;
 		try
 		{
 			if(address.length == 2)
@@ -303,6 +316,9 @@ public class GameClient extends BasicGame
 		catch(Exception e)
 		{
 			GameClient.getInstance().showMessageDialog("The server is offline, please check back later.");
+			if(GameClient.debug){
+				System.out.println("Attempted connection to "+host+":"+port);
+			}
 			getGUIPane().hideLoadingScreen();
 		}
 	}
@@ -1004,16 +1020,13 @@ public class GameClient extends BasicGame
 	{
 		try
 		{
-			String respath = System.getProperty("res.path");
-			if(respath == null)
-				respath = "";
 			/* WARNING: Change 385 to the amount of sprites we have in client
 			 * the load bar only works when we don't make a new SpriteSheet ie.
 			 * ss = new SpriteSheet(temp, 41, 51); needs to be commented out in
 			 * order for the load bar to work. */
 			for(int i = -7; i < 474; i++)
 			{
-				final String location = respath + "res/characters/" + i + ".png";
+				final String location = "res/characters/" + i + ".png";
 				m_spriteImageArray[i + 7] = new Image(location);
 			}
 		}
@@ -1293,7 +1306,7 @@ public class GameClient extends BasicGame
 	 */
 	public void returnToServerSelect()
 	{
-		getLoginScreen().hideServerRevision();
+		//getLoginScreen().hideServerRevision();
 		disconnect();
 		getLoginScreen().showServerSelect();
 		root.hideHUD();
