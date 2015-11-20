@@ -105,40 +105,38 @@ public class GameClient extends BasicGame
 	private volatile static GameClient m_instance;
 	private String m_language = Language.ENGLISH;
 	private Image m_loadImage; // Made these static to prevent memory leak.
-	private boolean m_loadSurroundingMaps = false;
 	private DeferredResource m_nextResource;
 	private SoundManager m_soundPlayer;
 	private Image[] m_spriteImageArray = new Image[500];
 	private UserManager m_userManager;
 	private static Options options;
 	private final long startTime = System.currentTimeMillis();
-	public static int m_port;
-	public static String serverlist;
-	private int lastPressedKey;
 	private Animator m_animator;
 	private boolean m_chatServerIsActive;
 	private boolean m_close = false; // Used to tell the game to close or not.
-	private Color m_daylight;
 	private boolean m_isNewMap = false;
+	private boolean m_loadSurroundingMaps = false;
+	private boolean m_started = false;
+	private static boolean started = false;
+	private Color m_daylight;
 	private ClientMapMatrix m_mapMatrix;
-	private int m_mapX, m_mapY, m_playerId;
+	private int m_mapX, m_mapY, m_playerId, lastPressedKey;
 	private MoveLearningManager m_moveLearningManager;
 	private OurPlayer m_ourPlayer = null;
-	private boolean m_started = false;
 	private TimeService m_time;// = new TimeService();
 	private WeatherService m_weather;// = new WeatherService();
 	private Graphics graphics;
 
-	private static boolean started = false;
-
-	public static boolean debug;
+	public static String SERVERLIST;
+	public static int m_port;
+	public static boolean DEBUG = false;
 	
 	public static void loadConfigs() throws InvalidFileFormatException, FileNotFoundException, IOException{
 		Ini configIni = new Ini(new FileInputStream("res/clientconfigs.ini"));
 		Ini.Section s = configIni.get("CONFIG");
-		debug = Boolean.parseBoolean(s.get("DEBUG"));
+		DEBUG = Boolean.parseBoolean(s.get("DEBUG"));
 		m_port = Integer.parseInt(s.get("PORT"));
-		serverlist = s.get("SERVERLIST");
+		SERVERLIST = s.get("SERVERLIST");
 		
 	}
 
@@ -169,7 +167,7 @@ public class GameClient extends BasicGame
 		KeyManager.initialize();
 		PokedexData.loadPokedexData();
 
-		if(GameClient.debug){ System.out.println("Local Java Runtime: Version "+ System.getProperty("java.version")); }
+		if(GameClient.DEBUG){ System.out.println("Local Java Runtime: Version "+ System.getProperty("java.version")); }
 		
 		boolean fullscreen = false;
 		try
@@ -316,7 +314,7 @@ public class GameClient extends BasicGame
 		catch(Exception e)
 		{
 			GameClient.getInstance().showMessageDialog("The server is offline, please check back later.");
-			if(GameClient.debug){
+			if(GameClient.DEBUG){
 				System.out.println("Attempted connection to "+host+":"+port);
 			}
 			getGUIPane().hideLoadingScreen();
@@ -985,7 +983,7 @@ public class GameClient extends BasicGame
 		if(options != null)
 			m_weather.setEnabled(options.isWeatherEnabled());
 
-		if(GameClient.debug){ System.out.println("Loading the files took " + (System.currentTimeMillis() - startTime) + " ms (time from start until you get the language select screen)"); }
+		if(GameClient.DEBUG){ System.out.println("Loading the files took " + (System.currentTimeMillis() - startTime) + " ms (time from start until you get the language select screen)"); }
 		started = true;
 	}
 
@@ -1048,7 +1046,7 @@ public class GameClient extends BasicGame
 
 	public void log(String message)
 	{
-		if(debug)
+		if(DEBUG)
 			System.out.println(message);
 	}
 

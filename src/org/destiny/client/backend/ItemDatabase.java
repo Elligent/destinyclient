@@ -116,7 +116,7 @@ public class ItemDatabase
 				respath = "";
 			InputStream source = FileLoader.loadFile(respath + "res/items/items.xml");
 			m_instance = serializer.read(ItemDatabase.class, source);
-			if(GameClient.debug){ GameClient.getInstance().log("INFO: Items database loaded."); }
+			if(GameClient.DEBUG){ GameClient.getInstance().log("INFO: Items database loaded."); }
 		}
 		catch(Exception e)
 		{

@@ -50,13 +50,10 @@ public class ClientMap extends TiledMap
 	{
 		super(tileSetsLocation);
 
-		String respath = System.getProperty("res.path");
-		if(respath == null)
-			respath = "";
 		try
 		{
-			m_grassOverlay = new Image(respath + "res/ui/grass_overlay.png", false);
-			m_SinnohOverlay = new Image(respath + "res/ui/sinnoh_grass.png", false);
+			m_grassOverlay = new Image("res/ui/grass_overlay.png", false);
+			m_SinnohOverlay = new Image("res/ui/sinnoh_grass.png", false);
 		}
 		catch(SlickException e)
 		{

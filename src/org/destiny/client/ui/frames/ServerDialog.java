@@ -54,15 +54,12 @@ public class ServerDialog extends ResizableFrame
 		panel.add(m_info);
 
 		/* Create all the server buttons */
-		String respath = System.getProperty("res.path");
-		if(respath == null)
-			respath = "";
 		try
 		{
 			m_servers = new Button[5];
 			m_host = new String[5];
 			InputStream stream;
-			URL url = new URL(GameClient.serverlist);
+			URL url = new URL(GameClient.SERVERLIST);
 			stream = url.openStream();
 			BufferedReader in = new BufferedReader(new InputStreamReader(stream));
 			m_servers[0] = new Button(in.readLine());
@@ -164,7 +161,7 @@ public class ServerDialog extends ResizableFrame
 			// Loads default servers
 			System.out.println("The serverlist could not be loaded.");
 			ioe.printStackTrace();
-			m_host[0] = "destiny1.langfordenterprises.com";
+			m_host[0] = "destinysrv1.industrial-illusions.net";
 			m_servers[0] = new Button("Pokemon Destiny Server");
 			m_servers[0].setSize(280, 24);
 			m_servers[0].setPosition(16, 64);

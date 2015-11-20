@@ -71,7 +71,7 @@ public class SoundManager extends Thread
 					loadFile(m_trackName);
 				}
 				m_trackChanged = false;
-				if(GameClient.debug){ System.out.println("Playing: " + m_trackName); }
+				if(GameClient.DEBUG){ System.out.println("Playing: " + m_trackName); }
 				m_files.get(m_trackName).playAsMusic(1, 20, true);
 			}
 			try 

@@ -135,11 +135,8 @@ public class ClientMapMatrix
 	 */
 	public void loadMap(int mapX, int mapY, int x, int y)
 	{
-		String respath = System.getProperty("res.path");
-		if(respath == null)
-			respath = "";
-		if(GameClient.debug){ System.out.println("Map: " + mapX + ", " + mapY); }
-		InputStream f = FileLoader.loadFile(respath + "res/maps/" + mapX + "." + mapY + ".tmx");
+		if(GameClient.DEBUG){ System.out.println("Map: " + mapX + ", " + mapY); }
+		InputStream f = FileLoader.loadFile("res/maps/" + mapX + "." + mapY + ".tmx");
 		if(f != null)
 			try
 			{
@@ -147,16 +144,16 @@ public class ClientMapMatrix
 				// mapX and mapY +50 to prevent a negative value.
 				if(m_loadedMaps[mapX + 50][mapY + 50] == null)
 				{
-					m_mapMatrix[x][y] = new ClientMap(respath + "res/maps/" + mapX + "." + mapY + ".tmx");
+					m_mapMatrix[x][y] = new ClientMap("res/maps/" + mapX + "." + mapY + ".tmx");
 					if(m_mapMatrix[x][y] == null)
 						System.out.println("Client Map is null");
 					m_loadedMaps[mapX + 50][mapY + 50] = m_mapMatrix[x][y];
-					if(GameClient.debug){ System.out.println("Loading map res/maps/" + mapX + "." + mapY + ".tmx from file, took " + (System.currentTimeMillis() - start) + "ms."); }
+					if(GameClient.DEBUG){ System.out.println("Loading map res/maps/" + mapX + "." + mapY + ".tmx from file, took " + (System.currentTimeMillis() - start) + "ms."); }
 				}
 				else
 				{
 					m_mapMatrix[x][y] = m_loadedMaps[mapX + 50][mapY + 50];
-					if(GameClient.debug){ System.out.println("Loading map res/maps/" + mapX + "." + mapY + ".tmx from cache, took " + (System.currentTimeMillis() - start) + "ms."); }
+					if(GameClient.DEBUG){ System.out.println("Loading map res/maps/" + mapX + "." + mapY + ".tmx from cache, took " + (System.currentTimeMillis() - start) + "ms."); }
 				}
 				m_mapMatrix[x][y].setMapMatrix(this);
 				m_mapMatrix[x][y].setMapX(x);
@@ -169,12 +166,12 @@ public class ClientMapMatrix
 			catch(SlickException se)
 			{
 				m_mapMatrix[x][y] = null;
-				if(GameClient.debug){ System.out.println((mapX) + "." + (mapY) + ".tmx could not be loaded"); }
+				if(GameClient.DEBUG){ System.out.println((mapX) + "." + (mapY) + ".tmx could not be loaded"); }
 				se.printStackTrace();
 			}
 		else
 			m_mapMatrix[x][y] = null;
-		if(GameClient.debug){  System.out.println(respath + (mapX) + "." + (mapY) + ".tmx could not be loaded"); }
+		if(GameClient.DEBUG){  System.out.println((mapX) + "." + (mapY) + ".tmx could not be loaded"); }
 	}
 
 	/**
@@ -396,7 +393,7 @@ public class ClientMapMatrix
 					try
 					{
 						m_mapNames.put(details[0] + ", " + details[1], details[2]);
-						if(GameClient.debug){ System.out.println(details[0] + ", " + details[1] + ", " + details[2]); }
+						if(GameClient.DEBUG){ System.out.println(details[0] + ", " + details[1] + ", " + details[2]); }
 					}
 					catch(Exception e)
 					{
