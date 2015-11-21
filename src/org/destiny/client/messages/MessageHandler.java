@@ -132,6 +132,6 @@ public class MessageHandler
 		// 100 is used for server revision
 		messages.put(101, new KurtEvent());
 		messages.put(102, new PPUpdateEvent());
-		/* TODO: Use commented numbers for future messages. */
+		//messages.put(103, new arg1)
 	}
 }

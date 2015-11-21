@@ -471,6 +471,9 @@
                 <theme name="moneylabel" ref="label">
                     <param name="font"><font>pokefont_large_white</font></param>
                 </theme>
+                <theme name="locationlabel" ref="label">
+                    <param name="font"><font>pokefont_large_white</font></param>
+                </theme>
                 <theme name="timelabel" ref="label">
                     <param name="font"><font>pokefont_large_white</font></param>
                 </theme>

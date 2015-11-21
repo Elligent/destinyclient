@@ -10,8 +10,7 @@ import de.matthiasmann.twl.theme.ThemeManager;
 public class TopBar extends Widget
 {
 	private ImageButton[] barbuttons;
-	private Label moneyLabel;
-	private Label timeLabel;
+	private Label moneyLabel, timeLabel, locationLabel;
 
 	public TopBar()
 	{
@@ -136,6 +135,10 @@ public class TopBar extends Widget
 		moneyLabel.setTheme("moneylabel");
 		add(moneyLabel);
 
+		locationLabel = new Label();
+		locationLabel.setTheme("locationlabel");
+		add(locationLabel);
+
 		timeLabel = new Label();
 		timeLabel.setTheme("timelabel");
 		add(timeLabel);
@@ -154,6 +157,11 @@ public class TopBar extends Widget
 	public Label getMoneyLabel()
 	{
 		return moneyLabel;
+	}
+
+	public Label getLocationLabel()
+	{
+		return locationLabel;
 	}
 
 	public Label getTimeLabel()
@@ -177,7 +185,10 @@ public class TopBar extends Widget
 		ImageButton lastButton = barbuttons[barbuttons.length - 1];
 		moneyLabel.setPosition(getInnerX() + lastButton.getInnerX() + lastButton.getWidth(), lastButton.getInnerY() + moneyLabel.getHeight() / 4);
 
+		locationLabel.adjustSize();
+		locationLabel.setPosition(getInnerX() + getWidth() - locationLabel.getWidth(), moneyLabel.getInnerY());
+
 		timeLabel.adjustSize();
-		timeLabel.setPosition(getInnerX() + getWidth() - timeLabel.getWidth(), moneyLabel.getInnerY());
+		timeLabel.setPosition(getInnerX() + getWidth() - timeLabel.getWidth(), locationLabel.getInnerY());
 	}
 }

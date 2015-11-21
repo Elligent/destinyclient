@@ -59,7 +59,10 @@ public enum ServerPacket
 	//X(55),
 	//X(56),
 	//X(57),
-	BATTLEFRONTIER_FACILITY(58);
+	BATTLEFRONTIER_FACILITY(58),
+	
+	
+	PLAYER_FLY_COMMAND(62);
 
 	private int code = -1;
 

@@ -1,10 +1,8 @@
 package org.destiny.client.backend.entity;
 
 import java.util.ArrayList;
-
 import org.destiny.client.GameClient;
 import org.destiny.client.backend.entity.Enums.Poketype;
-
 import de.matthiasmann.twl.Widget;
 
 /**
@@ -15,6 +13,7 @@ import de.matthiasmann.twl.Widget;
 public class OurPlayer extends Player
 {
 	private int[] m_badges;
+	private String[] s_badges;
 	private int m_breedingLvl = -1;
 	private int m_coordinatingLvl = -1;
 	private int m_fishingLvl = -1;
@@ -35,6 +34,13 @@ public class OurPlayer extends Player
 		m_badges = new int[42];
 		m_money = 0;
 		isBoxing = false;
+		// Apply badges names
+		s_badges = new String[32];
+		s_badges = new String[]{ "Pewter City", "Cerulean City", "Vermilion City", "Celadon City", "Fuchsia City", "Saffron City", "Cinnabar Island", "Viridian City",
+				"Violet City", "Azalea Town", "Goldenrod City", "Ecruteak City", "Cianwood City", "Olivine City", "Mahogany Town", "Blackthorn City",
+				"Rustboro City", "Dewford Town", "Mauville City", "Lavaridge Town", "Petallburg City", "Fortree City", "Mossdeep City", "Sootopolis City",
+				"Oreburgh City", "Eterna City", "Veilstone City", "Pastoria City", "Hearthome City", "Canalave City", "Snowpoint", "Sunnyshore City"
+		};		
 	}
 
 	/**
@@ -57,6 +63,15 @@ public class OurPlayer extends Player
 		m_pokedex = original.getPokedex();
 	}
 
+	/*
+	 * Return badge town
+	 */
+	public String returnBadgeCity(int iBadge)
+	{
+		// Return badge city
+		return s_badges[iBadge];
+	}
+	
 	/**
 	 * Adds a badge to the player
 	 * 

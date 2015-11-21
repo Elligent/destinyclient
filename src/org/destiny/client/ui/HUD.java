@@ -854,7 +854,7 @@ public class HUD extends DesktopArea
 			}
 		}
 	}
-
+	
 	/**
 	 * Adds a message to its appropriate chat window.
 	 * 

@@ -340,6 +340,12 @@
         <area name="topbar_pokedex" xywh="32,0,32,32"/>
         <area name="topbar_pokedex_pressed" xywh="32,32,32,32"/>
         <area name="topbar_pokedex_hover" xywh="32,64,32,32"/>
+		<area name="topbar_resync" xywh="320,0,32,32"/>
+        <area name="topbar_resync_pressed" xywh="320,32,32,32"/>
+        <area name="topbar_resync_hover" xywh="320,64,32,32"/>
+        <area name="topbar_fly" xywh="352,0,32,32"/>
+        <area name="topbar_fly_pressed" xywh="352,32,32,32"/>
+        <area name="topbar_fly_hover" xywh="352,64,32,32"/>
     </images>
     <images file="partyinfo.png">
         <area name="party_active" xywh="1,1,171,42"/>

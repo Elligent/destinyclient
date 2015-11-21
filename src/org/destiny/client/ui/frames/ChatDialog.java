@@ -56,6 +56,8 @@ public class ChatDialog extends Widget
 			}
 		});
 
+		
+		
 		enterCallback = new EditField.Callback()
 		{
 			@Override
@@ -216,7 +218,7 @@ public class ChatDialog extends Widget
 	@Override
 	public void layout()
 	{
-		setSize(300, 200);
+		setSize(400, 120);
 		setPosition(0, GameClient.getInstance().getGUI().getHeight() - getHeight());
 		input.setSize(getWidth(), 25);
 		possibleBoxes.setSize(getWidth(), 22);
