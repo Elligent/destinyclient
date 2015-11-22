@@ -100,7 +100,6 @@ public class GameClient extends BasicGame
 	private final static String GAME_TITLE = "Pokemon Destiny 1.0";
 	private static AppGameContainer gameContainer;
 	private Connection m_connection;
-	private String m_filepath;
 	private Font m_fontLarge, m_fontSmall, m_trueTypeFont, m_pokedexfontsmall, m_pokedexfontmedium, m_pokedexfontlarge, m_pokedexfontmini, m_pokedexfontbetweenminiandsmall;
 	private volatile static GameClient m_instance;
 	private String m_language = Language.ENGLISH;
@@ -132,7 +131,7 @@ public class GameClient extends BasicGame
 	public static boolean DEBUG = false;
 	
 	public static void loadConfigs() throws InvalidFileFormatException, FileNotFoundException, IOException{
-		Ini configIni = new Ini(new FileInputStream("res/clientconfigs.ini"));
+		Ini configIni = new Ini(new FileInputStream("config/clientconfigs.ini"));
 		Ini.Section s = configIni.get("CONFIG");
 		DEBUG = Boolean.parseBoolean(s.get("DEBUG"));
 		m_port = Integer.parseInt(s.get("PORT"));
@@ -275,7 +274,7 @@ public class GameClient extends BasicGame
 
 	/**
 	 * Tries to connect to a requested server. Will notify the user if
-	 * connection was succesfully or failed.
+	 * connection was successful or a failure.
 	 * 
 	 * @param hoststring
 	 *        The string that specifies the host including port (e.g.
@@ -475,12 +474,6 @@ public class GameClient extends BasicGame
 	public Connection getConnections()
 	{
 		return m_connection;
-	}
-
-	/** Returns the File Path, if any */
-	public String getFilePath()
-	{
-		return m_filepath;
 	}
 
 	/**
@@ -899,13 +892,13 @@ public class GameClient extends BasicGame
 		gc.setShowFPS(false); /* Toggle this to show FPS TODO: include in options */
 
 		/* Setup variables */
-		m_fontLarge = new AngelCodeFont(m_filepath + "res/fonts/dp.fnt", m_filepath + "res/fonts/dp.png");
-		m_fontSmall = new AngelCodeFont(m_filepath + "res/fonts/dp-small.fnt", m_filepath + "res/fonts/dp-small.png");
-		m_pokedexfontsmall = new AngelCodeFont(m_filepath + "res/fonts/dex-small.fnt", m_filepath + "res/fonts/dex-small.png");
-		m_pokedexfontmedium = new AngelCodeFont(m_filepath + "res/fonts/dex-medium.fnt", m_filepath + "res/fonts/dex-medium.png");
-		m_pokedexfontlarge = new AngelCodeFont(m_filepath + "res/fonts/dex-large.fnt", m_filepath + "res/fonts/dex-large.png");
-		m_pokedexfontmini = new AngelCodeFont(m_filepath + "res/fonts/dex-mini.fnt", m_filepath + "res/fonts/dex-mini.png");
-		m_pokedexfontbetweenminiandsmall = new AngelCodeFont(m_filepath + "res/fonts/dex-betweenminiandsmall.fnt", m_filepath + "res/fonts/dex-betweenminiandsmall.png");
+		m_fontLarge = new AngelCodeFont("res/fonts/dp.fnt","res/fonts/dp.png");
+		m_fontSmall = new AngelCodeFont("res/fonts/dp-small.fnt", "res/fonts/dp-small.png");
+		m_pokedexfontsmall = new AngelCodeFont("res/fonts/dex-small.fnt", "res/fonts/dex-small.png");
+		m_pokedexfontmedium = new AngelCodeFont("res/fonts/dex-medium.fnt", "res/fonts/dex-medium.png");
+		m_pokedexfontlarge = new AngelCodeFont("res/fonts/dex-large.fnt", "res/fonts/dex-large.png");
+		m_pokedexfontmini = new AngelCodeFont("res/fonts/dex-mini.fnt", "res/fonts/dex-mini.png");
+		m_pokedexfontbetweenminiandsmall = new AngelCodeFont("res/fonts/dex-betweenminiandsmall.fnt", "res/fonts/dex-betweenminiandsmall.png");
 
 		// Player.loadSpriteFactory();
 
@@ -914,7 +907,7 @@ public class GameClient extends BasicGame
 		try
 		{
 			/* DOES NOT WORK YET!!! */
-			m_trueTypeFont = new TrueTypeFont(java.awt.Font.createFont(java.awt.Font.TRUETYPE_FONT, new File(m_filepath + "res/fonts/PokeFont.ttf")).deriveFont(java.awt.Font.PLAIN, 10), false);
+			m_trueTypeFont = new TrueTypeFont(java.awt.Font.createFont(java.awt.Font.TRUETYPE_FONT, new File("res/fonts/PokeFont.ttf")).deriveFont(java.awt.Font.PLAIN, 10), false);
 			// m_trueTypeFont = m_fontSmall;
 		}
 		catch(Exception e)
@@ -934,7 +927,7 @@ public class GameClient extends BasicGame
 		try
 		{
 			lwjglRenderer = new LWJGLRenderer();
-			File f = new File(m_filepath + "res/themes/default/Default.xml");
+			File f = new File("res/themes/default/Default.xml");
 			theme = ThemeManager.createThemeManager(f.getAbsoluteFile().toURI().toURL(), lwjglRenderer);
 			root = new GUIPane();
 			gui = new GUI(root, lwjglRenderer);
@@ -990,9 +983,6 @@ public class GameClient extends BasicGame
 	/** Load options */
 	private void initClient()
 	{
-		m_filepath = System.getProperty("res.path");
-		if(m_filepath == null)
-			m_filepath = "";
 		options = new Options();
 		m_soundPlayer = new SoundManager(options.isSoundMuted());
 		m_soundPlayer.start();

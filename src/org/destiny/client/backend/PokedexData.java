@@ -178,9 +178,9 @@ public class PokedexData
 		locations = new HashMap<Integer, ArrayList<Integer>[]>();
 		locationids = new HashMap<Integer, Object[]>();
 		
-		Ini pokemon = new Ini(new FileInputStream("res/pokemon.ini"));
-		Ini locations = new Ini(new FileInputStream("res/locations.ini"));
-		Ini locationid = new Ini(new FileInputStream("res/locationids.ini"));
+		Ini pokemon = new Ini(new FileInputStream("db/pokemon.ini"));
+		Ini locations = new Ini(new FileInputStream("db/locations.ini"));
+		Ini locationid = new Ini(new FileInputStream("db/locationids.ini"));
 		
 
 		for(int i = 0; i < 239; i++)

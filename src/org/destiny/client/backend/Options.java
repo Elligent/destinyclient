@@ -20,7 +20,7 @@ public class Options
 	{
 		try
 		{
-			Ini optionsIni = new Ini(new FileInputStream("res/options.ini"));
+			Ini optionsIni = new Ini(new FileInputStream("config/options.ini"));
 			Ini.Section interfaceSection = optionsIni.get("INTERFACE");
 			Ini.Section soundSection = optionsIni.get("SOUND");
 
@@ -38,7 +38,7 @@ public class Options
 
 	public void saveSettings()
 	{
-		try(FileWriter fstream = new FileWriter("res/options.ini"); BufferedWriter out = new BufferedWriter(fstream))
+		try(FileWriter fstream = new FileWriter("config/options.ini"); BufferedWriter out = new BufferedWriter(fstream))
 		{
 			out.write("[INTERFACE]");
 			out.newLine();

@@ -40,11 +40,8 @@ public class KeyManager
 	public static void initialize() throws InvalidFileFormatException, FileNotFoundException, IOException
 	{
 		keys = new HashMap<Action, Integer>();
-		String respath = System.getProperty("res.path");
-		if(respath == null)
-			respath = "";
-		
-		Ini keyIni = new Ini(new FileInputStream("res/keys.ini"));
+				
+		Ini keyIni = new Ini(new FileInputStream("config/keys.ini"));
 			
 		String s;
 
@@ -129,7 +126,7 @@ public class KeyManager
 	private static void generateDefaultSettings() throws IOException
 	{
 		// Create file
-		FileWriter fstream = new FileWriter("res/keys.ini");
+		FileWriter fstream = new FileWriter("config/keys.ini");
 		BufferedWriter out = new BufferedWriter(fstream);
 		out.write(";see specialkeys.txt for formats of keys like left shift, right control, etc");
 		out.newLine();
