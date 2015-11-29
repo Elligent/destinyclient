@@ -131,12 +131,20 @@ public class GameClient extends BasicGame
 	public static boolean DEBUG = false;
 	
 	public static void loadConfigs() throws InvalidFileFormatException, FileNotFoundException, IOException{
-		Ini configIni = new Ini(new FileInputStream("config/clientconfigs.ini"));
-		Ini.Section s = configIni.get("CONFIG");
-		DEBUG = Boolean.parseBoolean(s.get("DEBUG"));
-		m_port = Integer.parseInt(s.get("PORT"));
-		SERVERLIST = s.get("SERVERLIST");
-		
+	
+		try { 
+			Ini configIni = new Ini(new FileInputStream("config/clientconfigs.ini"));
+			Ini.Section s = configIni.get("CONFIG");
+			DEBUG = Boolean.parseBoolean(s.get("DEBUG"));
+			m_port = Integer.parseInt(s.get("PORT"));
+			SERVERLIST = s.get("SERVERLIST");
+		} catch(InvalidFileFormatException ivfe) {
+			ivfe.printStackTrace();
+		} catch(FileNotFoundException fnfe){
+			fnfe.printStackTrace();
+		} catch(IOException ioe) {
+			ioe.printStackTrace();
+		}
 	}
 
 	public static void main(String[] args) throws InvalidFileFormatException, FileNotFoundException, IOException
@@ -157,6 +165,11 @@ public class GameClient extends BasicGame
 			log.createNewFile();
 			PrintStream p = new PrintStream(log);
 			System.setErr(p);
+		}catch(InvalidFileFormatException iffe){
+			iffe.printStackTrace();
+		}
+		catch(FileNotFoundException fnfe){
+			fnfe.printStackTrace();
 		}
 		catch(IOException ioe)
 		{

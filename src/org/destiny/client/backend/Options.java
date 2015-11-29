@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import org.ini4j.Ini;
+import org.ini4j.InvalidFileFormatException;
 
 public class Options
 {
@@ -30,9 +31,13 @@ public class Options
 			setLoadSoundEnabled(convertIntToBoolean(Integer.parseInt(soundSection.get("DOLOAD"))));
 			volume = Integer.parseInt(soundSection.get("VOLUME"));
 		}
-		catch(IOException ioe)
+		 catch (InvalidFileFormatException iffe){
+			iffe.printStackTrace();
+		}catch(IOException ioe)
 		{
 			ioe.printStackTrace();
+		}catch(NoClassDefFoundError ncdf){
+			ncdf.printStackTrace();
 		}
 	}
 
